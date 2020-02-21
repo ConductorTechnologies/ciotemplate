@@ -6,7 +6,7 @@ import os
 import sys
 import unittest
 
-from conductor.native.lib.expander import Expander
+from conductor.core.expander import Expander
 
 NATIVE_MODULE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if NATIVE_MODULE not in sys.path:
