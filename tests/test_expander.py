@@ -17,6 +17,8 @@ class ExpanderTest(unittest.TestCase):
 
     def setUp(self):
         self.context = {
+            "Scene": "/projects/myscene",
+            "RenderLayer": "masterLayer",
             "home": "/users/joebloggs/",
             "shot": "/metropolis/shot01/",
             "ct_dept": "texturing",
@@ -43,6 +45,17 @@ class ExpanderTest(unittest.TestCase):
         e = Expander(**self.context)
         with self.assertRaises(KeyError):
             e.evaluate("<bad>")
+
+    def test_mixed_case(self):
+        e = Expander(**self.context)
+        result = e.evaluate("x_<Scene>_y")
+        self.assertEqual(result, "x_/projects/myscene_y")
+
+    def test_repeated_tokens(self):
+        e = Expander(**self.context)
+        result = e.evaluate("x_<Scene>_<Scene>_y")
+        self.assertEqual(result, "x_/projects/myscene_/projects/myscene_y")
+
 
     # lists
     def test_expand_list_target(self):
