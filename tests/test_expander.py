@@ -5,15 +5,12 @@
 import os
 import sys
 import unittest
+import mock
 
 from conductor.core.expander import Expander
 
-NATIVE_MODULE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-if NATIVE_MODULE not in sys.path:
-    sys.path.insert(0, NATIVE_MODULE)
 
-
-class ExpanderTest(unittest.TestCase):
+class ExpanderTokensTest(unittest.TestCase):
 
     def setUp(self):
         self.context = {
@@ -56,7 +53,6 @@ class ExpanderTest(unittest.TestCase):
         result = e.evaluate("x_<Scene>_<Scene>_y")
         self.assertEqual(result, "x_/projects/myscene_/projects/myscene_y")
 
-
     # lists
     def test_expand_list_target(self):
         e = Expander(**self.context)
@@ -93,6 +89,37 @@ class ExpanderTest(unittest.TestCase):
         e = Expander(**self.context)
         with self.assertRaises(KeyError):
             e.evaluate({"foo": "<bad>", "bar": "directories"})
+
+    def test_strip(self):
+        e = Expander(**self.context)
+        result = e.evaluate(" x_<home>_y ")
+        self.assertEqual(result, "x_/users/joebloggs/_y")
+
+
+class ExpanderEnvVarTest(unittest.TestCase):
+
+    def setUp(self):
+        self.env = {
+            "HOME": "/users/joebloggs",
+            "SHOT": "MT_shot01",
+            "DEPT": "texturing",
+        }
+
+    def test_expand_env_vars(self):
+        with mock.patch.dict("os.environ", self.env):
+            e = Expander()
+            result = e.evaluate({"foo": "${SHOT}_hello", "bar": "x_${DEPT}_y"})
+            self.assertIsInstance(result, dict)
+            self.assertEqual(
+                result, {"foo": "MT_shot01_hello", "bar": "x_texturing_y"})
+
+    def test_doesnt_expand_nonexistent_vars(self):
+        with mock.patch.dict("os.environ", self.env):
+            e = Expander()
+            o = {"foo": "${JOB}_hello", "bar": "x_${PROD}_y"}
+            result = e.evaluate(o)
+            self.assertIsInstance(result, dict)
+            self.assertEqual(result, o)
 
 
 if __name__ == '__main__':
