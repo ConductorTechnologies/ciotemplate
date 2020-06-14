@@ -23,7 +23,7 @@ REQUIRES_PYTHON = "~=2.7"
 VERSION = ""  # version will be populated by __version__.py file
 
 
-REQUIRED = ["pyjwt>=1.4.2", "pyyaml>=3.11", "qt.py", "requests>=2.10.0"]
+REQUIRED = ["pyjwt>=1.4.2", "pyyaml>=3.11", "requests>=2.10.0"]
 
 # Optional packages/functionality
 EXTRAS = {}
