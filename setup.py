@@ -14,8 +14,13 @@ REQUIRED = ["pyjwt>=1.4.2", "pyyaml>=3.11", "requests>=2.10.0"]
 HERE = os.path.abspath(os.path.dirname(__file__))
 SLUG = NAME.lower().replace("-", "_").replace(" ", "_").replace(".", os.sep)
 
-with open(os.path.join(HERE, "src", SLUG, "__version__.py")) as  vf:
-    VERSION= vf.readlines()[-1].split()[-1].strip("\"'")
+with open(os.path.join(HERE, "src", SLUG, "__version__.py")) as vf:
+    for line in vf:
+        match = re.compile(
+            r"^__version__.*=(?:[\s\"']+)(.*)(?:[\s\"'])$").match(line.strip())
+        if match:
+            VERSION = match.group(1)
+            break
 
 setuptools.setup(
     author=AUTHOR,
