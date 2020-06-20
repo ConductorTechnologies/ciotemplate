@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
  
 import os
+import re
 import setuptools
 
-NAME = "conductor.core"
+NAME = "conductor_core"
 DESCRIPTION = "Core functionality for Conductor's client tools"
 URL = "https://github.com/AtomicConductor/conductor-core"
 EMAIL = "info@conductortech.com"
@@ -12,7 +13,8 @@ AUTHOR = "conductor"
 REQUIRES_PYTHON = "~=2.7"
 REQUIRED = ["pyjwt>=1.4.2", "pyyaml>=3.11", "requests>=2.10.0"]
 HERE = os.path.abspath(os.path.dirname(__file__))
-SLUG = NAME.lower().replace("-", "_").replace(" ", "_").replace(".", os.sep)
+# SLUG = NAME.lower().replace("-", "_").replace(" ", "_").replace(".", os.sep)
+SLUG = NAME.replace("_", os.sep)
 
 with open(os.path.join(HERE, "src", SLUG, "__version__.py")) as vf:
     for line in vf:
@@ -42,6 +44,7 @@ setuptools.setup(
     packages=setuptools.find_packages(where="src"),
     python_requires=REQUIRES_PYTHON,
     url=URL,
+    namespace_packages=['conductor'],
     version=VERSION,
     zip_safe=False,
 )
