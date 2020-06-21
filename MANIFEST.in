@@ -1,5 +1,5 @@
-graft src
+
 prune tests
 global-exclude __pycache__
-global-exclude *.py[co]
-include src/conductor_core/VERSION
+global-exclude *.pyo
+global-exclude *.pyc

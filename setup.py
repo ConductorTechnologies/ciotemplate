@@ -5,7 +5,7 @@ import os
 import re
 import setuptools
 
-NAME = "conductor_core"
+NAME = "ciocore"
 DESCRIPTION = "Core functionality for Conductor's client tools"
 URL = "https://github.com/AtomicConductor/conductor-core"
 EMAIL = "info@conductortech.com"
@@ -34,9 +34,10 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     name=NAME,
     package_dir={"": "src"},
-    packages=setuptools.find_packages(where="src"),
+    packages=setuptools.find_packages(where="src", exclude=["*.pyc"]),
     python_requires=REQUIRES_PYTHON,
     url=URL,
     version=VERSION,
     zip_safe=False,
 )
+
