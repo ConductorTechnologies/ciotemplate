@@ -34,10 +34,9 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     name=NAME,
     package_dir={"": "src"},
-    packages=setuptools.find_packages(where="src", exclude=["*.pyc"]),
+    packages=setuptools.find_packages(where="src"),
     python_requires=REQUIRES_PYTHON,
     url=URL,
     version=VERSION,
     zip_safe=False,
 )
-

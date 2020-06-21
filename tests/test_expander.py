@@ -7,7 +7,7 @@ import sys
 import unittest
 import mock
 
-from conductor.core.expander import Expander
+from ciocore.expander import Expander
 
 
 class ExpanderTokensTest(unittest.TestCase):
