@@ -1,3 +1,8 @@
+### Version:0.1.6 -- 29 Jun 2020
+
+* Fix bad path to conductor cmd. [5be12af]
+* Packages: Remove tree property and make _tree -> tree. [1e6ae34]
+
 ### Version:0.1.5 -- 22 Jun 2020
 
 * Remove src. [a366047]
