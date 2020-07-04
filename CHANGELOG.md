@@ -1,3 +1,8 @@
+### Version:0.1.7 -- 04 Jul 2020
+
+* Adds a remove method to pathlist. [5712d2c]
+* Wip configure script. [e7f6ea9]
+
 ### Version:0.1.6 -- 29 Jun 2020
 
 * Fix bad path to conductor cmd. [5be12af]
