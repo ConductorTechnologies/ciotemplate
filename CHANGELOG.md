@@ -1,3 +1,7 @@
+### Version:0.1.9 -- 10 Jul 2020
+
+* Implement data singletons here and remove from conductor-maya. [d31aeaa]
+
 ### Version:0.1.8 -- 06 Jul 2020
 
 * Repair some path list issues found while adding remove method. [7368cc2]
