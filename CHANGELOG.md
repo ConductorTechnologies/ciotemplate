@@ -1,3 +1,8 @@
+### Version:0.1.10 -- 21 Jul 2020
+
+* Use cio to differentiate from conductor. [3f49451]
+* Projects and instance types sorted for fixtures. [4a0f833]
+
 ### Version:0.1.9 -- 10 Jul 2020
 
 * Implement data singletons here and remove from conductor-maya. [d31aeaa]
