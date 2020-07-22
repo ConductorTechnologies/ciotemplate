@@ -24,8 +24,9 @@ class AngleBracketTemplate(Template):
 class Expander(object):
     """Class to expand angle bracket tokens."""
 
-    def __init__(self, **context):
+    def __init__(self,safe=False, **context):
         self._context = context
+        self._safe = safe
 
     def evaluate(self, target):
         """Evaluate target, whether its a value, list, or dict."""
@@ -44,8 +45,12 @@ class Expander(object):
         Replace <token>s with values provided by the _context dict
         """
         item = os.path.expandvars(item.strip())
+        if self._safe:
+            return AngleBracketTemplate(item).safe_substitute(self._context)
         try:
             return AngleBracketTemplate(item).substitute(self._context)
         except KeyError:
-            raise KeyError("Invalid token. Valid tokens are: {}".format(
-                self._context.keys()))
+                raise KeyError("Invalid token. Valid tokens are: {}".format(
+                    self._context.keys()))
+
+ 

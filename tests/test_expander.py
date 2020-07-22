@@ -95,6 +95,11 @@ class ExpanderTokensTest(unittest.TestCase):
         with self.assertRaises(KeyError):
             e.evaluate({"foo": "<bad>", "bar": "directories"})
 
+    def test_bad_dict_value_does_not_raise_if_safe(self):
+        e = Expander(safe=True, **self.context)
+        result = e.evaluate("x_<bad>_y")
+        self.assertEqual(result, "x_<bad>_y")
+
     def test_strip(self):
         e = Expander(**self.context)
         result = e.evaluate(" x_<home>_y ")
