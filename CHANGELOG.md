@@ -1,3 +1,7 @@
+### Version:0.1.11 -- 22 Jul 2020
+
+* Adds Setup wizard to make installation easier. [a06d610]
+
 ### Version:0.1.10 -- 21 Jul 2020
 
 * Use cio to differentiate from conductor. [3f49451]
