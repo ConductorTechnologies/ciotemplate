@@ -13,7 +13,7 @@ URL = "https://github.com/AtomicConductor/conductor-core"
 EMAIL = "info@conductortech.com"
 AUTHOR = "conductor"
 REQUIRES_PYTHON = "~=2.7"
-REQUIRED = ["pyjwt>=1.4.2", "pyyaml>=3.11", "requests>=2.10.0"]
+REQUIRED = ["pyjwt>=1.4.2", "pyyaml>=3.11", "requests>=2.10.0", "future>=0.18.0"]
 HERE = os.path.abspath(os.path.dirname(__file__))
 
 with open(os.path.join(HERE,'VERSION')) as version_file:
@@ -39,7 +39,7 @@ setuptools.setup(
     ],
     cmdclass={"build_py": BuildCommand},
     description=DESCRIPTION,
-    entry_points={"console_scripts": ["conductor=ciocore.cli.conductor:main", "cio_setup=ciocore.cli.configure:main"]},
+    entry_points={"console_scripts": ["conductor=ciocore.cli.conductor:main", "setup=ciocore.cli.setup:main"]},
     include_package_data=True,
     install_requires=REQUIRED,
     long_description=DESCRIPTION,
