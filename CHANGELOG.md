@@ -1,3 +1,8 @@
+### Version:0.1.13 -- 26 Jul 2020
+
+* Refactored post install setup script. [3fbba5e]
+
+
 ### Version:0.1.12 -- 25 Jul 2020
 
 * Setup can accept cmdline args for non-wizard mode. [f195b7d]
