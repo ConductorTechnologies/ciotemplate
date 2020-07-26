@@ -1,3 +1,8 @@
+### Version:0.1.12 -- 25 Jul 2020
+
+* Setup can accept cmdline args for non-wizard mode. [f195b7d]
+* Adds safe mode to expander. [95f6cfd]
+
 ### Version:0.1.11 -- 22 Jul 2020
 
 * Adds Setup wizard to make installation easier. [a06d610]
