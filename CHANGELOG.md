@@ -1,3 +1,7 @@
+### Version:0.1.14 -- 27 Jul 2020
+
+* Simplified post install script- no longer interactive. [6bba8af]
+
 ### Version:0.1.13 -- 26 Jul 2020
 
 * Refactored post install setup script. [3fbba5e]
