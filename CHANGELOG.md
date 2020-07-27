@@ -1,6 +1,10 @@
+### Version:0.1.15 -- 27 Jul 2020
+
+* Made post install script runnable. [8dce89f]
+
 ### Version:0.1.14 -- 27 Jul 2020
 
-* Simplified post install script- no longer interactive. [6bba8af]
+* Simplified post install script - no longer interactive. [6bba8af]
 
 ### Version:0.1.13 -- 26 Jul 2020
 
