@@ -41,8 +41,7 @@ setuptools.setup(
     ],
     cmdclass={"build_py": BuildCommand},
     description=DESCRIPTION,
-    entry_points={"console_scripts": [
-        "conductor=ciocore.cli.conductor:main", "setup=ciocore.cli.setup:main"]},
+    scripts=['bin/conductor'],
     include_package_data=True,
     install_requires=REQUIRED,
     long_description=DESCRIPTION,
