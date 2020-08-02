@@ -1,3 +1,9 @@
+### Version:0.2.0 -- 01 Aug 2020
+
+* Use explicit entry point script. [dfd9da3]
+* The coredata singleton that holds instance_types, projects, and software must now be initialized with software product. This is to avoid having to specify the product on every call to data(). [db0fcb0]
+* Expander context made public to indicate to other objects that they may retrieve the context. [a457aa1]
+
 ### Version:0.1.15 -- 27 Jul 2020
 
 * Made post install script runnable. [8dce89f]
