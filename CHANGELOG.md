@@ -1,3 +1,7 @@
+### Version:0.2.1 -- 01 Aug 2020
+
+* Minor
+
 ### Version:0.2.0 -- 01 Aug 2020
 
 * Use explicit entry point script. [dfd9da3]
