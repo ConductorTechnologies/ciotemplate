@@ -1,3 +1,14 @@
+### Version:0.2.2 -- 08 Aug 2020
+
+* Temp workarounds for missing plugin-host links in packages
+* Remove "shared" request.session object. (#293)
+* Update httpbatchworker docstring (#291)
+* File api refactor multipart and tcp connection pooling (#290)
+* Multipart updates to workers
+* Add make_preapred_request for s3 calls to remove transfer-encoding header being added. update descriptions and v2 endpoints. Add content-length for s3 calls. don't return response object on s3 calls which can cause a build up of memory due to jobworker, return headers or none.
+* Add metric_store increments for aws presigned and multipart, cannot use chunked reader since generator does not have len function.
+* Use httpbatchworker response to avoid additional os.stat calls. [7c76c46]
+
 ### Version:0.2.1 -- 01 Aug 2020
 
 * Minor
