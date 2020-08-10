@@ -1,3 +1,8 @@
+### Version:0.2.3 -- 10 Aug 2020
+
+* Adds remove_missing files method to Gpath. [3b96796]
+* Adds validators base class. [c91ffc9] [b074cce]
+
 ### Version:0.2.2 -- 08 Aug 2020
 
 * Temp workarounds for missing plugin-host links in packages
