@@ -1,3 +1,7 @@
+### Version:0.2.5 -- 11 Aug 2020
+
+* Production release
+
 ### Version:0.2.4 -- 11 Aug 2020
 
 * Removed redshift package ids hack. [8d11367]
