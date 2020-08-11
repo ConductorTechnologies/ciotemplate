@@ -1,3 +1,7 @@
+### Version:0.2.4 -- 11 Aug 2020
+
+* Removed redshift package ids hack. [8d11367]
+
 ### Version:0.2.3 -- 10 Aug 2020
 
 * Adds remove_missing files method to Gpath. [3b96796]
