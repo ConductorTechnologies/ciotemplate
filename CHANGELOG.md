@@ -1,3 +1,8 @@
+### Version:0.2.6 -- 18 Aug 2020
+
+* Adds jwt domain validation for creds file. [0042b2b]
+* Remove config file references. [451896b]
+
 ### Version:0.2.5 -- 11 Aug 2020
 
 * Production release
