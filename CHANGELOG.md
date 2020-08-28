@@ -1,3 +1,11 @@
+### Version:0.2.7 -- 28 Aug 2020
+
+* Adds cycle_progressions chunk strategy for improved scout frame distribution. [9b42288]
+* Remove yaml config (#8)
+* Remove config file references
+* Adds jwt domain validation for credentials file so token is renewed when switching Google projects. 
+* Api_url defaults to same domain as auth_url
+
 ### Version:0.2.6 -- 18 Aug 2020
 
 * Adds jwt domain validation for creds file. [0042b2b]
