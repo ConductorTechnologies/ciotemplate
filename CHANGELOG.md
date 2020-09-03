@@ -1,3 +1,7 @@
+### Version:0.2.8 -- 03 Sep 2020
+
+* Tidy and remove dependency on future. [0c2f72c]
+
 ### Version:0.2.7 -- 28 Aug 2020
 
 * Adds cycle_progressions chunk strategy for improved scout frame distribution. [9b42288]
