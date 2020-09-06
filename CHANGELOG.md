@@ -1,3 +1,7 @@
+### Version:0.2.9 -- 06 Sep 2020
+
+* Sequence consumers must use factory. [01a7dd7]
+
 ### Version:0.2.8 -- 03 Sep 2020
 
 * Tidy and remove dependency on future. [0c2f72c]
