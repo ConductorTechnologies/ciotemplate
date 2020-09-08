@@ -1,3 +1,7 @@
+### Version:0.2.10 -- 08 Sep 2020
+
+* Gpath allow colons in paths. [9c19d3a]
+ 
 ### Version:0.2.9 -- 06 Sep 2020
 
 * Sequence consumers must use factory. [01a7dd7]
