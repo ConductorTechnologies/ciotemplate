@@ -1,3 +1,8 @@
+### Version:0.2.11 -- 01 Oct 2020
+
+* Package environment now allows exclusive override. [481851b]
+* Allow relative paths that start with letter, colon - it could happen. [241fc68]
+
 ### Version:0.2.10 -- 08 Sep 2020
 
 * Gpath allow colons in paths. [9c19d3a]
