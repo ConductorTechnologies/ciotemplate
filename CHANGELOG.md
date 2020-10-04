@@ -1,3 +1,7 @@
+### Version:0.2.12 -- 04 Oct 2020
+
+* Catch unimplemented thread_count. [c64ad79]
+
 ### Version:0.2.11 -- 01 Oct 2020
 
 * Package environment now allows exclusive override. [481851b]
