@@ -19,6 +19,14 @@ HERE = os.path.abspath(os.path.dirname(__file__))
 with open(os.path.join(HERE, 'VERSION')) as version_file:
     VERSION = version_file.read().strip()
 
+long_description = ""
+with open(os.path.join(HERE, 'README.md')) as readme:
+    long_description = readme.read().strip()
+long_description += "\n\n## Changelog\n\n"
+with open(os.path.join(HERE, 'CHANGELOG.md')) as changelog:
+    long_description += changelog.read().strip()   
+ 
+
 
 class BuildCommand(build_py):
     def run(self):
@@ -43,7 +51,7 @@ setuptools.setup(
     scripts=['bin/conductor'],
     include_package_data=True,
     install_requires=REQUIRED,
-    long_description=DESCRIPTION,
+    long_description=long_description,
     long_description_content_type="text/markdown",
     name=NAME,
     package_dir={"": "."},
