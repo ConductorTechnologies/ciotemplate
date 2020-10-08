@@ -1,3 +1,7 @@
+### Version:0.2.13 -- 08 Oct 2020
+
+* Adds README and CHANGELOG to PyPi description. [97a07dd]
+
 ### Version:0.2.12 -- 04 Oct 2020
 
 * Catch unimplemented thread_count. [c64ad79]
@@ -56,9 +60,6 @@
 * Add metric_store increments for aws presigned and multipart, cannot use chunked reader since generator does not have len function.
 * Use httpbatchworker response to avoid additional os.stat calls. [7c76c46]
 
-### Version:0.2.1 -- 01 Aug 2020
-
-* Minor
 
 ### Version:0.2.0 -- 01 Aug 2020
 
