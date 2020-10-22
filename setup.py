@@ -35,8 +35,8 @@ class BuildCommand(build_py):
         if not self.dry_run:
             with open(os.path.join(self.build_lib, NAME, "VERSION"), "w") as f:
                 f.write(VERSION)
-
-
+            
+     
 setuptools.setup(
     author=AUTHOR,
     author_email=EMAIL,
@@ -48,7 +48,7 @@ setuptools.setup(
     ],
     cmdclass={"build_py": BuildCommand},
     description=DESCRIPTION,
-    scripts=['bin/conductor'],
+    scripts=['bin/conductor', 'bin/conductor.bat'],
     include_package_data=True,
     install_requires=REQUIRED,
     long_description=long_description,
