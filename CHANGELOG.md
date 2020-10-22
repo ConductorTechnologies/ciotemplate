@@ -1,3 +1,7 @@
+### Version:0.2.14 -- 21 Oct 2020
+
+* Repair windows command line executable. Added a bat file so that it is no longer necessary to call python explicitly. [cf9f19f]
+
 ### Version:0.2.13 -- 08 Oct 2020
 
 * Adds README and CHANGELOG to PyPi description. [97a07dd]
