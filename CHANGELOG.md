@@ -1,3 +1,7 @@
+### Version:0.2.15 -- 06 Nov 2020
+
+* Developer can switch between using test-fixtures and the real API within one session by using data.set_fixtures_dir() method. As a result, the DISK_CACHE env var is no longer used and has been deleted. [226b860]
+
 ### Version:0.2.14 -- 21 Oct 2020
 
 * Repair windows command line executable. Added a bat file so that it is no longer necessary to call python explicitly. [cf9f19f]
