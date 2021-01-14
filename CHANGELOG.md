@@ -1,3 +1,7 @@
+### Version:0.2.16 -- 07 Jan 2021
+
+* Gpath supports UNC paths. [7333433]
+
 ### Version:0.2.15 -- 06 Nov 2020
 
 * Developer can switch between using test-fixtures and the real API within one session by using data.set_fixtures_dir() method. As a result, the DISK_CACHE env var is no longer used and has been deleted. [226b860]
