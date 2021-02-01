@@ -1,3 +1,8 @@
+### Version:0.2.18 -- 15 Jan 2021
+
+* Adds expression resolution to expander class. [cbeb64e]
+* Unc support (#16)
+
 ### Version:0.2.16 -- 07 Jan 2021
 
 * Gpath supports UNC paths. [7333433]

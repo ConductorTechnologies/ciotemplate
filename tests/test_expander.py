@@ -12,7 +12,7 @@ if SRC not in sys.path:
     sys.path.insert(0, SRC)
 
 
-from ciocore.expander import Expander
+from ciocore.expander import Expander, PadResolver, PosixResolver
 
 
 class ExpanderTokensTest(unittest.TestCase):
@@ -130,6 +130,104 @@ class ExpanderEnvVarTest(unittest.TestCase):
             result = e.evaluate(o)
             self.assertIsInstance(result, dict)
             self.assertEqual(result, o)
+
+
+
+class PadResolverTest(unittest.TestCase):
+
+    def setUp(self):
+        self.hash = PadResolver.get_alpha_hash("pad start 4")
+        self.template = "<pad start 4>and<another expression>"
+        self.context =  {"start": 20, "Scene": "foo"}
+        print self.hash
+
+    def test_hashkey_in_template(self):
+        r  = PadResolver(self.template,  self.context)
+        self.assertIn(self.hash, r.template)
+
+    def test_hashkey_in_context(self):
+        r  = PadResolver(self.template,  self.context)
+        self.assertIn(self.hash, r.context)
+
+    def test_value_is_padded(self):
+        r  = PadResolver(self.template,  self.context)
+        self.assertEqual(r.context[self.hash], "0020")
+
+    def test_no_pad_leave_context_unchanged(self):
+        r  = PadResolver("<hui>",  self.context)
+        self.assertEqual(r.context,self.context)
+
+    def test_no_pad_leave_template_unchanged(self):
+        r  = PadResolver("<foo>_<pad>",  self.context)
+        self.assertEqual(r.template,"<foo>_<pad>")
+
+    def test_same_expression_with_different_spaces_creates_one_key(self):
+        alphahash = PadResolver.get_alpha_hash("pad start 4")
+        r  = PadResolver( "<pad start 4>and<pad   start    4>",  {"start": 20})
+        self.assertEqual(r.template,"<{0}>and<{0}>".format(alphahash))
+
+
+
+class PosixResolverTest(unittest.TestCase):
+
+    def setUp(self):
+        self.uncpath_hash = PosixResolver.get_alpha_hash("posix uncpath")
+        self.letterpath_hash = PosixResolver.get_alpha_hash("posix letterpath")
+
+        self.template = "<posix uncpath>and<posix letterpath>"
+        self.context =  {"start": 20, "uncpath": "\\\\a\\unc\\path", "letterpath": "D:\\a\\letter\\path"}
+        # print self.hash
+
+    def test_hashkey_in_template(self):
+        r  = PosixResolver(self.template,  self.context)
+        self.assertIn(self.uncpath_hash, r.template)
+        self.assertIn(self.letterpath_hash, r.template)
+
+    def test_hashkey_in_context(self):
+        r  = PosixResolver(self.template,  self.context)
+        self.assertIn(self.uncpath_hash, r.context)
+        self.assertIn(self.letterpath_hash, r.context)
+
+    def test_unc_paths_are_converted(self):
+        r  = PosixResolver(self.template,  self.context)
+        self.assertEqual(r.context[self.uncpath_hash], "//a/unc/path")
+
+    def test_letter_paths_are_converted(self):
+        r  = PosixResolver(self.template,  self.context)
+        self.assertEqual(r.context[self.letterpath_hash], "/a/letter/path")
+ 
+
+class ExpanderWithExpressionTest(unittest.TestCase):
+
+    def setUp(self):
+        self.context =  {"start": 20, "Scene": "foo"}
+
+    def test_expand_value_with_expr(self):
+        e = Expander(**self.context)
+        result = e.evaluate("/prefix/<Scene>.<pad start 4>.exr")
+        self.assertEqual(result, "/prefix/foo.0020.exr")
+
+    def test_expand_value_with_several_plugins(self):
+        e = Expander( start=20, outpath="C:\\my\\path")
+        result = e.evaluate("<posix outpath>/foo.<pad start 4>.exr")
+        self.assertEqual(result, "/my/path/foo.0020.exr")
+
+
+    def test_expand_value_with_expr_when_appears_twice(self):
+        e = Expander(**self.context)
+        result = e.evaluate("/prefix/<pad start 6>/<Scene>.<pad start 4>.exr")
+        self.assertEqual(result, "/prefix/000020/foo.0020.exr")
+
+    def test_expand_value_with_expr_when_identical_expr_appears_twice(self):
+        e = Expander(**self.context)
+        result = e.evaluate("/prefix/<pad start 4>/<Scene>.<pad start 4>.exr")
+        self.assertEqual(result, "/prefix/0020/foo.0020.exr")
+
+    def test_invalid_when_expr_invalid(self):
+        e = Expander(**self.context)
+        with self.assertRaises(ValueError):
+            e.evaluate("/prefix/<pad start X>/<Scene>.<pad start 4>.exr")
+
 
 
 if __name__ == '__main__':
