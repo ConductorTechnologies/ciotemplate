@@ -1,6 +1,6 @@
 ### Version:0.2.19 -- 24 Feb 2021
 
-* Adds basename modifiers to expander. Example, use `<basename scenefile>` instead of <scenename>  [daf1af3]
+* Adds basename modifiers to expander. Example, use `<basename scenefile>` instead of `<scenename>`  [daf1af3]
 
 ### Version:0.2.18 -- 15 Jan 2021
 
