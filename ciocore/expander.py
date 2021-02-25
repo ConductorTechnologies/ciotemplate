@@ -204,3 +204,28 @@ class LowerResolver(ExpressionResolver):
     def resolve(self, variable):
         return self.context[variable].lower()
 
+
+class BasenameResolver(ExpressionResolver):
+    """
+    Resolve basename expression.
+
+    Can have optional x arg to denote strip_ext
+    """
+    PATTERN = r"basename\s+[A-Za-z][A-Za-z_]+"
+
+    def resolve(self, variable, *args):
+        return re.split("\\\\|/", self.context[variable])[-1]
+        
+
+class BasenamexResolver(ExpressionResolver):
+    """
+    Resolve basename expression.
+
+    Can have optional x arg to denote strip_ext
+    """
+    PATTERN = r"basename_x\s+[A-Za-z][A-Za-z_]+"
+
+    def resolve(self, variable, *args):
+        base = re.split("\\\\|/", self.context[variable])[-1]
+        return os.path.splitext(base)[0]
+
