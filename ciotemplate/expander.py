@@ -4,7 +4,6 @@ import re
 import hashlib
 import base64
 from string import Template
-import abc
 
 class AngleBracketTemplate(Template):
     """ Template for substituting tokens in angle brackets.
@@ -100,17 +99,16 @@ class ExpressionResolver(object):
 
 .
     """
-    __metaclass__ = abc.ABCMeta
     # must be overridden
     PATTERN = None
 
     @staticmethod
     def get_alpha_hash(rhs):
         """A 10 char hash of an expression string"""
-        result = "".join([c for c in base64.b64encode(
-            hashlib.md5(rhs).digest()) if c.isalpha()][:10])
-        return result
 
+        return "".join([c for c in base64.b64encode(
+            hashlib.md5( str.encode(rhs) ).digest()).decode('ascii') if c.isalpha()][:10])
+ 
     @classmethod
     def get_rx(cls):
         """Combine the regex from derived class with total template regex.
@@ -152,9 +150,9 @@ class ExpressionResolver(object):
                 # add the new key to the context with the resolved value
                 self.context[key] = self.resolve(*args[1:])
 
-    @abc.abstractmethod
+    # @abc.abstractmethod
     def resolve(self):
-        return
+        return NotImplementedError
 
 
 class PadResolver(ExpressionResolver):

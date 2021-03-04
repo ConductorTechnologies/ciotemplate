@@ -18,7 +18,7 @@ SRC = os.path.join(os.path.dirname(
 if SRC not in sys.path:
     sys.path.insert(0, SRC)
 
-from ciocore.expander import (
+from ciotemplate.expander import (
     Expander, 
     PadResolver, 
     PosixResolver, 
@@ -148,7 +148,6 @@ class PadResolverTest(unittest.TestCase):
         self.hash = PadResolver.get_alpha_hash("pad start 4")
         self.template = "<pad start 4>and<another expression>"
         self.context = {"start": 20, "Scene": "foo"}
-        print self.hash
 
     def test_hashkey_in_template(self):
         r = PadResolver(self.template,  self.context)
@@ -185,8 +184,7 @@ class PosixResolverTest(unittest.TestCase):
         self.template = "<posix uncpath>and<posix letterpath>"
         self.context = {"start": 20, "uncpath": "\\\\a\\unc\\path",
                         "letterpath": "D:\\a\\letter\\path"}
-        # print self.hash
-
+ 
     def test_hashkey_in_template(self):
         r = PosixResolver(self.template,  self.context)
         self.assertIn(self.uncpath_hash, r.template)
