@@ -28,7 +28,6 @@ with open(os.path.join(HERE, 'CHANGELOG.md')) as changelog:
 class BuildCommand(build_py):
     def run(self):
         build_py.run(self)
-
         if not self.dry_run:
             target_dir = os.path.join(self.build_lib, NAME)
             for fn in ["VERSION", "LICENSE", "README.md"]:
