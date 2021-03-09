@@ -6,7 +6,7 @@
         {
             "label": "pip build",
             "type": "shell",
-            "command": ". ~/.virtualenvs/cmc/bin/activate && cd $DEV/conductor/ciopath &&  pip install --upgrade . --target=$HOME/Conductor",
+            "command": ". ~/.virtualenvs/cmc/bin/activate && cd $DEV/conductor/ciotemplate &&  pip install --upgrade . --target=$HOME/Conductor",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
