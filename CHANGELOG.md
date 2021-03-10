@@ -1,5 +1,6 @@
 ### Version:0.1.0 -- 10 Mar 2021
 
+* Adds license file. [0fcbb61]
 * Adds config. [bd5d677]
 * Add .circleci/config.yml. [06c3f90]
 * Python 3 [f04669c]
