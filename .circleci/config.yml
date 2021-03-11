@@ -21,7 +21,8 @@ jobs:
           name: Create pypi credentials
       - run:
           command: |
-            python3 setup.py sdist bdist_wheel
+            python setup.py clean --all
+            python setup.py  bdist_wheel   --universal
           name: Create packages
       - run:
           command: |
@@ -45,7 +46,8 @@ jobs:
           name: Create pypi credentials
       - run:
           command: |
-            python3 setup.py sdist bdist_wheel
+            python setup.py clean --all
+            python setup.py  bdist_wheel   --universal
           name: Create packages
       - run:
           command: |
