@@ -1,3 +1,7 @@
+### Version:0.1.1 -- 11 Mar 2021
+
+* Universal flag. [4a65e2b]
+
 ### Version:0.1.0 -- 10 Mar 2021
 
 * Adds license file. [0fcbb61]
