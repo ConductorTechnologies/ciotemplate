@@ -1,6 +1,6 @@
-### Version:0.1.1 -- 11 Mar 2021
+### Version:0.1.2 -- 26 Mar 2021
 
-* Universal flag. [4a65e2b]
+* CICD tweaks and readme. [954cbfa]
 
 ### Version:0.1.0 -- 10 Mar 2021
 
