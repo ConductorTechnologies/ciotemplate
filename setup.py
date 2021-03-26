@@ -30,7 +30,7 @@ class BuildCommand(build_py):
         build_py.run(self)
         if not self.dry_run:
             target_dir = os.path.join(self.build_lib, NAME)
-            for fn in ["VERSION", "LICENSE", "README.md"]:
+            for fn in ["VERSION", "LICENSE", "README.md", "CHANGELOG.md"]:
                 copyfile(os.path.join(HERE, fn), os.path.join(target_dir,fn))
 
 setuptools.setup(
@@ -50,6 +50,7 @@ setuptools.setup(
     name=NAME,
     package_dir={"": "."},
     packages=setuptools.find_packages(where="."),
+    options={"bdist_wheel": {"universal": True}},
     url=URL,
     version=VERSION,
     zip_safe=False,

@@ -10,6 +10,7 @@ jobs:
       - checkout
       - python/install-packages:
           pkg-manager: pip
+          pip-dependency-file: requirements_ci.txt
       - run:
           command: tox
           name: Tox tests
@@ -22,7 +23,7 @@ jobs:
       - run:
           command: |
             python setup.py clean --all
-            python setup.py  bdist_wheel   --universal
+            python setup.py  bdist_wheel 
           name: Create packages
       - run:
           command: |
@@ -35,6 +36,7 @@ jobs:
       - checkout
       - python/install-packages:
           pkg-manager: pip
+          pip-dependency-file: requirements_ci.txt
       - run:
           command: tox
           name: Tox tests
@@ -47,7 +49,7 @@ jobs:
       - run:
           command: |
             python setup.py clean --all
-            python setup.py  bdist_wheel   --universal
+            python setup.py  bdist_wheel
           name: Create packages
       - run:
           command: |
