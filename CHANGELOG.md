@@ -1,3 +1,7 @@
+### Version:0.1.3 -- 14 Mar 2022
+
+* The error message for bad tokens is now human friendly. [d7de682]
+
 ### Version:0.1.2 -- 26 Mar 2021
 
 * CICD tweaks and readme. [954cbfa]
