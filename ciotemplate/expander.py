@@ -64,10 +64,10 @@ class Expander(object):
             return AngleBracketTemplate(item).substitute(context)
         except KeyError:
             raise KeyError("Invalid token. Valid tokens are: {}".format(
-                self.context.keys()))
+                tuple(self.context.keys())))
         except ValueError:
             raise ValueError("Invalid token. Valid tokens are: {}".format(
-                self.context.keys()))
+                tuple(self.context.keys())))
 
 class ExpressionResolver(object):
 

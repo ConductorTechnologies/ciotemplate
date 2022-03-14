@@ -7,6 +7,8 @@ import os
 import sys
 import unittest
 
+import re
+
 try:
     from unittest import mock
 except ImportError:
@@ -58,6 +60,14 @@ class ExpanderTokensTest(unittest.TestCase):
         with self.assertRaises(KeyError):
             e.evaluate("<bad>")
 
+    def test_bad_test_bad_value_error_message_format(self):
+        e = Expander(**self.context)
+        try:
+            e.evaluate(["<bad>"])
+        except KeyError as exception:
+            msg = str(exception).strip("\"")
+            self.assertTrue( re.match( r'^Invalid token. Valid tokens are: \(.*\)$',msg ) )
+
     def test_mixed_case(self):
         e = Expander(**self.context)
         result = e.evaluate("x_<Scene>_y")
@@ -83,8 +93,9 @@ class ExpanderTokensTest(unittest.TestCase):
 
     def test_bad_list_value_raises(self):
         e = Expander(**self.context)
-        with self.assertRaises(KeyError):
+        with self.assertRaises(KeyError) as context:
             e.evaluate(["<bad>", "directories"])
+
 
     # dicts
     def test_expand_dict_target(self):
