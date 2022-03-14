@@ -12,6 +12,12 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "tox",
+            "type": "shell",
+            "command": "tox",
+            "group": "test"
         }
     ]
 }
