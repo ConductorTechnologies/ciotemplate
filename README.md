@@ -1,6 +1,6 @@
-# Conductor for Maya
+# Angle bracket templating
 
-Maya plugin submitter for the Conductor Cloud rendering service.
+Resolve templates like "<token1> and <token2>".
 
 ## Install
 
@@ -17,14 +17,7 @@ Clone the repo.
 git clone git@github.com:ConductorTechnologies/ciotemplate.git
 cd ciotemplate
 ```
-
-Set up a clean virtual envirionment with Python 2.7 for development (optional).
-
-```
-python -m virtualenv venv
-. ./venv/bin/activate
-```
-
+  
 Install development dependencies
 ```
 pip install -r requirements_dev.txt
